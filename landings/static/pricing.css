@@ -1,0 +1,109 @@
+.pricing-page {
+    border-radius: 30px;
+    background: linear-gradient(
+        180deg,
+        rgba(217, 217, 217, 0.09) 0%,
+        rgba(217, 217, 217, 0) 100%
+    );
+    width: 90%;
+    margin: 0 auto;
+    color: #fff;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.pricing-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.pricing {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.price {
+    background-color: #c0c0c0;
+    min-width: 430px;
+    max-width: 430px;
+    min-height: 450px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #242424;
+    display: flex;
+    flex-direction: column;
+}
+
+.price h2 {
+    margin-bottom: 10px;
+}
+
+.bottomp {
+    margin-bottom: 5px;
+    min-height: 50px;
+}
+
+.topp {
+    margin-bottom: 5px;
+    min-height: 50px;
+}
+
+.price ul {
+    padding: 10px 30px;
+}
+
+.price li {
+    margin-bottom: 5px;
+}
+
+.pricing button {
+    margin-right: 40px;
+    align-self: flex-end;
+    background-color: #242424;
+    color: #c0c0c0;
+    background-color: #c0c0c0;
+    color: #242424;
+    border: 3px solid #242424;
+    border-radius: 15px;
+    padding: 10px 60px;
+    margin-top: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.3s ease-in-out;
+    font-family: "IBM Plex Mono", monospace;
+}
+
+.pricing button:hover {
+    border: 3px solid #c0c0c0;
+    background-color: #242424;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #c0c0c0;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 1480px) {
+    .pricing {
+        margin: 20px 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 853px) {
+    .pricing {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+}

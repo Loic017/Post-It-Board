@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <link rel="stylesheet" href="{% static 'pricing.css' %}" />
+        <link rel="stylesheet" href="{% static 'faq.css' %}" />
+        <title>Post It</title>
+    </head>
+    <body id="body" class="no-transition">
+        <a href="{% url 'landing' %}">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="42"
+                height="58"
+                viewBox="0 0 42 58"
+                fill="none"
+            >
+                <path
+                    d="M28.5 30C21.0442 30 15 23.9558 15 16.5L15 0L27 1.43099e-07C35.2843 2.41888e-07 42 6.71573 42 15L42 16.5C42 23.9558 35.9558 30 28.5 30V30Z"
+                    fill="white"
+                />
+                <path
+                    d="M11 0L11 58V58C4.92487 58 5.41035e-07 53.0751 8.06588e-07 47L2.3802e-06 11C2.64575e-06 4.92487 4.92487 -2.65552e-07 11 0V0Z"
+                    fill="white"
+                /></svg
+        ></a>
+
+        <nav>
+            <ul class="links">
+                <li class="link"><a href="{% url 'pricing' %}">Pricing</a></li>
+                <li class="link"><a href="{% url 'faq' %}">FAQ</a></li>
+                <li class="link"><a href="#">Sign In</a></li>
+            </ul>
+        </nav>
+        {% block content %} {% endblock %}
+        <footer>
+            <p>
+                Post It - Making it easy to create, write, save and share ideas.
+                The master of all four actions.
+            </p>
+            <a href="https://github.com/Loic017">GitHub</a>
+        </footer>
+        <script src="{% static 'mouse.js' %}"></script>
+        <script src="{% static 'noTransition.js' %}"></script>
+    </body>
+</html>

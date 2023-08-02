@@ -1,0 +1,306 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+:root {
+    --backdrop: #242424;
+}
+
+.no-transition * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--backdrop);
+    font-family: "IBM Plex Mono", monospace;
+    overflow: auto;
+}
+
+svg {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 20px 15px;
+    transition: all 0.2s ease-in;
+}
+
+svg:hover {
+    transform: rotate(360deg);
+}
+
+.links {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+nav {
+    height: 50px;
+    padding-top: 40px;
+}
+
+nav li {
+    text-decoration: none;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 3px;
+    transition: all 0.2s ease-in;
+}
+
+nav a:hover {
+    border-bottom: 3px solid #fff;
+}
+
+.landing-page {
+    border-radius: 30px;
+    background: linear-gradient(
+        180deg,
+        rgba(217, 217, 217, 0.09) 0%,
+        rgba(217, 217, 217, 0) 100%
+    );
+    width: 90%;
+    margin: 0 auto;
+    height: 1000px;
+    color: #fff;
+    margin-top: 60px;
+    overflow: hidden;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.cta {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    padding-top: 100px;
+    align-items: center;
+}
+
+.cta-right {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    gap: 30px;
+}
+
+.cta h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.cta-right p {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.cta img {
+    width: 550px;
+    height: 380px;
+    border-radius: 30px;
+}
+
+.cta button {
+    text-align: center;
+    background-color: #c0c0c0;
+    border: 1px solid transparent;
+    border-radius: 17px;
+    padding: 15px 20px;
+    font-size: 24px;
+    font-weight: 400;
+    width: 250px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    font-family: IBM Plex Mono;
+    margin-top: 20px;
+}
+
+.cta button:hover {
+    background-color: #242424;
+    border: 1px solid #c0c0c0;
+    color: #fff;
+    transform: scale(1.01);
+    box-shadow: 0 0 10px #000;
+}
+
+.below-cta {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.below-cta h1 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.below-cta p {
+    font-size: 20px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.example {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    overflow-x: scroll;
+    padding-bottom: 15px;
+}
+
+.img {
+    background-color: #c0c0c0;
+    min-width: 310px;
+    min-height: 200px;
+    border-radius: 30px;
+    margin-top: 30px;
+    overflow-x: hidden;
+}
+
+.example::-webkit-scrollbar {
+    width: 1px;
+}
+
+.example::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.example::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.example::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+footer {
+    text-align: center;
+    color: #ffffff32;
+    padding-top: 50px;
+    padding-bottom: 15px;
+}
+
+footer a {
+    padding-top: 5px;
+    color: #ffffff32;
+    text-decoration: none;
+    transition: all 0.2s ease-in;
+}
+
+footer a:hover {
+    color: #ffffff8b;
+}
+
+@media screen and (max-width: 1400px) {
+    .cta {
+        gap: 40px;
+    }
+
+    .cta-right {
+        gap: 20px;
+    }
+
+    .cta h1 {
+        font-size: 24px;
+    }
+
+    .cta p {
+        font-size: 14px;
+    }
+
+    .cta img {
+        width: 400px;
+        height: 280px;
+        border-radius: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 0;
+        text-align: center;
+        background-color: #242424;
+        padding-top: 10px;
+        margin: 0 auto;
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+    }
+    .landing-page {
+        overflow: show;
+        height: auto;
+        margin-top: 30px;
+    }
+    .cta {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cta p {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .cta-right {
+        text-align: center;
+        max-width: 500px;
+    }
+
+    .cta-right button {
+        margin: 0 auto;
+    }
+
+    .example {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+
+    .img {
+        min-width: 100px;
+        min-height: 150px;
+        margin-top: 0;
+    }
+
+    .below-cta p {
+        font-size: 16px;
+        margin-top: 20px;
+        width: 90%;
+    }
+
+    footer {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    svg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 20px 15px;
+        transition: all 0.2s ease-in;
+    }
+}
