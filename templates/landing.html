@@ -20,18 +20,17 @@
     <h2>All Post Its</h2>
     <div class="posts-section">
         <div class="create-post"><a href="{% url 'create' %}">+</a></div>
+        {% for post in posts %}
         <div class="post-it">
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-            <h2 class="title">Note</h2>
-            <p class="content">Content of content</p>
+            <div class="post-actions">
+                <button class="edit">Favourite</button>
+                <button class="edit">Edit</button>
+                <button class="delete">Delete</button>
+            </div>
+            <h2 class="title">{{ post.title }}</h2>
+            <p class="content">{{ post.content }}</p>
         </div>
-        <div class="post-it">
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-            <h2 class="title">Note</h2>
-            <p class="content">Content of content</p>
-        </div>
+        {% endfor %}
     </div>
 </div>
 
