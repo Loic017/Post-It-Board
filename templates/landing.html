@@ -5,8 +5,34 @@
 
 <div class="dashboard-main">
     <h1>{{ user.username }}'s Post Board</h1>
-    <a href="">Create Post</a>
-    <div class="posts-section"></div>
+    <form action="">
+        <input id="search" type="text" placeholder="Search" />
+    </form>
+    <h2>Favourite Post Its</h2>
+    <div id="favourites" class="posts-section">
+        <div class="post-it">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+            <h2 class="title">Note</h2>
+            <p class="content">Content of content</p>
+        </div>
+    </div>
+    <h2>All Post Its</h2>
+    <div class="posts-section">
+        <div class="create-post"><a href="{% url 'create' %}">+</a></div>
+        <div class="post-it">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+            <h2 class="title">Note</h2>
+            <p class="content">Content of content</p>
+        </div>
+        <div class="post-it">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+            <h2 class="title">Note</h2>
+            <p class="content">Content of content</p>
+        </div>
+    </div>
 </div>
 
 {% else %}

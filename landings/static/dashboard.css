@@ -1,0 +1,196 @@
+.dashboard-main {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 100px;
+}
+
+.dashboard-main input {
+    width: 500px;
+    height: 35px;
+    border-radius: 10px;
+    border: 0;
+    padding: 0 10px;
+    transition: all 0.3s ease-in-out;
+    margin: 0 50px;
+}
+
+.dashboard-main input:focus {
+    transform: scale(1.01);
+    border: 0;
+}
+
+.dashboard-main h1 {
+    padding: 0 50px;
+}
+
+.dashboard-main h2 {
+    margin-top: 10px;
+    padding: 20px 50px;
+}
+
+.create-post {
+    min-width: 200px;
+    height: 200px;
+    background-color: #7c5ef7;
+    border-radius: 20px 0 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.create-post:hover {
+    transform: scale(1.05);
+}
+
+.create-post a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 900;
+    transition: all 0.3s ease-in-out;
+}
+
+.post-it {
+    min-width: 300px;
+    height: 200px;
+    padding: 10px;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-color: radial-gradient(
+            circle,
+            transparent 20%,
+            #e5e5f7 20%,
+            #e5e5f7 80%,
+            transparent 80%,
+            transparent
+        ),
+        radial-gradient(
+                circle,
+                transparent 20%,
+                #e5e5f7 20%,
+                #e5e5f7 80%,
+                transparent 80%,
+                transparent
+            )
+            25px 25px,
+        linear-gradient(#444cf7 2px, transparent 2px) 0 -1px,
+        linear-gradient(90deg, #444cf7 2px, #e5e5f7 2px) -1px 0;
+    background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+    /* background: transparent; */
+    backdrop-filter: blur(20px);
+    border-radius: 20px 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    border: 2px solid #fff;
+}
+
+.post-it button {
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
+.posts-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    overflow-x: scroll;
+    padding: 10px 20px;
+}
+
+/* Set the width and height of the scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+    opacity: 0.3;
+}
+
+/* Set the background color of the track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #7d5ef763;
+    opacity: 0.3;
+}
+
+/* Set the color and shape of the thumb */
+::-webkit-scrollbar-thumb {
+    background-color: #7c5ef7;
+    border-radius: 5px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    color: #d8d9da;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 1300px;
+    margin: 100px auto;
+    box-shadow: 0 0 10px #000;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 600px;
+    height: 500px;
+    background-color: #d5c3ed;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 700px;
+    height: 500px;
+    background-color: #000000;
+    color: #d8d9da;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.right form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.right form input {
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 0;
+    width: 70%;
+}
+
+.right form input[type="submit"] {
+    width: 50%;
+    padding: 15px 20px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: IBM Plex Mono;
+}
+
+.right form input[type="submit"]:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 5px #fff;
+    border: 2px solid #fff;
+    background-color: #000;
+    color: #fff;
+}
+
+.right form label {
+    padding-left: 20px;
+    margin-top: 20px;
+}
