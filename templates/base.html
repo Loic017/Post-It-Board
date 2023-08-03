@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="{% static 'style.css' %}" />
         <link rel="stylesheet" href="{% static 'pricing.css' %}" />
         <link rel="stylesheet" href="{% static 'faq.css' %}" />
+        <link rel="stylesheet" href="{% static 'login.css' %}" />
+        <link rel="stylesheet" href="{% static 'newlanding.css' %}" />
         <title>Post It</title>
     </head>
     <body id="body" class="no-transition">
@@ -29,13 +31,34 @@
         ></a>
 
         <nav>
+            {% if user.is_authenticated %}
             <ul class="links">
+                {% load socialaccount %}
+                <li class="link">
+                    <a href="{% url 'landing' %}">Dashboard</a>
+                </li>
                 <li class="link"><a href="{% url 'pricing' %}">Pricing</a></li>
                 <li class="link"><a href="{% url 'faq' %}">FAQ</a></li>
-                <li class="link"><a href="#">Sign In</a></li>
+                <li class="link">
+                    <a href="{% url 'logout' %}">Log Out</a>
+                </li>
             </ul>
+            {% else %}
+            <ul class="links">
+                {% load socialaccount %}
+                <li class="link"><a href="{% url 'landing' %}">Welcome</a></li>
+                <li class="link"><a href="{% url 'pricing' %}">Pricing</a></li>
+                <li class="link"><a href="{% url 'faq' %}">FAQ</a></li>
+                <li class="link">
+                    <a href="{% provider_login_url 'google' %}?next=/"
+                        >Log In</a
+                    >
+                </li>
+            </ul>
+            {% endif %}
         </nav>
-        {% block content %} {% endblock %}
+
+        <div class="page-container">{% block content %} {% endblock %}</div>
         <footer>
             <p>
                 Post It - Making it easy to create, write, save and share ideas.

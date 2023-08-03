@@ -1,15 +1,8 @@
 .faq-page {
     border-radius: 30px;
-    background: linear-gradient(
-        180deg,
-        rgba(217, 217, 217, 0.09) 0%,
-        rgba(217, 217, 217, 0) 100%
-    );
     width: 90%;
-    height: 800px;
     margin: 0 auto;
     color: #fff;
-    margin-top: 60px;
     display: flex;
     flex-direction: column;
 }

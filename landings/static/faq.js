@@ -7,5 +7,12 @@ faqHeads.forEach((faqHead, index) => {
         faqContents[index].classList.toggle("hidden");
         faqHead.classList.toggle("faq-head-clicked");
         faqHead.classList.toggle("faq-head");
+        for (let i = 0; i < faqContents.length; i++) {
+            if (i !== index) {
+                faqContents[i].classList.toggle("hidden");
+                faqHeads[i].classList.toggle("faq-head");
+                faqHeads[i].classList.toggle("faq-head-clicked");
+            }
+        }
     });
 });

@@ -1,41 +1,36 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-<div class="landing-page">
-    </svg>
-    <section class="cta">
-        <div class="cta-left">
-            <img
-                class="cta-img"
-                src="https://htmlcolorcodes.com/assets/images/colors/gray-color-solid-background-1920x1080.png"
-                alt=""
-            />
-        </div>
-        <div class="cta-right">
-            <h1>Remember Remember...</h1>
-            <p>
-                Its time to stop forgetting, and start remembering. Keep your
-                thoughts in one accessible place
-            </p>
-            <button>Try for Free</button>
-        </div>
-    </section>
-    <section class="below-cta">
-        <h1>Quick & Simple</h1>
-        <section class="example">
-            <div class="img">
-                <p></p>
-            </div>
-            <div class="img"></div>
-            <div class="img"></div>
-            <div class="img"></div>
-        </section>
-        <p>
-            Add. Write. Save. Share. Long ago, these four actions lived together
-            physically. Then everything changed when the internet was invented.
-            Only Post It, master of all four actions, could fix things. But when
-            we needed it most... It showed up!
-        </p>
-    </section>
+<!-- prettier-ignore -->
+{% if user.is_authenticated %}
+
+<div class="dashboard-main">
+    <h1>{{ user.username }}'s Post Board</h1>
+    <a href="">Create Post</a>
+    <div class="posts-section"></div>
 </div>
 
-{% endblock %}
+{% else %}
+<div class="home-container">
+    <div class="top-home">
+        <img
+            class="landing-img"
+            src="{% static 'images/undraw_notes_re_pxhw.svg' %}"
+            alt=""
+        />
+        <h2 class="welcometext">Welcome to Post It</h2>
+        <h1 class="catch">Stop forgetting, Stay remembering.</h1>
+        <p class="tagline">
+            Forget another note taking app, just make a Post It.
+        </p>
+        <a href="#">Join Today</a>
+        <div class="desc-container">
+            <p class="desc" style="display: none">
+                Add. Write. Save. Share. Long ago, these four actions lived
+                together physically. Then everything changed when the internet
+                was invented. Only Post It, master of all four actions, could
+                fix things. But when we needed it most... It showed up!
+            </p>
+        </div>
+    </div>
+</div>
+{% endif %} {% endblock %}

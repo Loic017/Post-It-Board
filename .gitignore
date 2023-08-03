@@ -8,6 +8,11 @@ __init__.py
 manage.py
 migrations
 wsgi.py
+models.py
+account
+openid
+socialaccount
+tests
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

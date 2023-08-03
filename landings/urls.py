@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.landing, name="landing"),
     path('faq/', views.faq, name="faq"),
     path('pricing/', views.pricing, name="pricing"),
+    path("logout/", views.logout_view, name="logout"),
 ]
