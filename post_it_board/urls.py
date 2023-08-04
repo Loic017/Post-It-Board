@@ -23,3 +23,5 @@ urlpatterns = [
     path('', include("landings.urls")),
     path('posts/', include("posts.urls")),
 ]
+
+handler404 = 'landings.views.handler404'

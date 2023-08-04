@@ -2,33 +2,75 @@
 
 <!-- prettier-ignore -->
 {% if user.is_authenticated %}
-
+{% load socialaccount %}
 <div class="dashboard-main">
-    <h1>{{ user.username }}'s Post Board</h1>
+    <h1>{{ user.username }}'s Post It Board</h1>
     <form action="">
         <input id="search" type="text" placeholder="Search" />
     </form>
     <h2>Favourite Post Its</h2>
     <div id="favourites" class="posts-section">
-        <div class="post-it">
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-            <h2 class="title">Note</h2>
-            <p class="content">Content of content</p>
+        {% if favPosts|length == 0 %}
+        <div class="create-post"><a href="{% url 'create' %}">+</a></div>
+        {% endif %} {% for post in favPosts %}
+        <div class="post-container">
+            <div class="post-it">
+                <div class="post-actions">
+                    {% if post.isPublic %}
+                    <a href="{% url 'share' post.pk %}" class="edit">
+                        <img src="{% static 'images/share.png' %}" alt="" />
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'favourite' post.pk %}" class="edit"
+                        >{% if post.isFavourite %}
+                        <img src="{% static 'images/isfav.png' %}" alt="" />
+                        {% else %}
+                        <img src="{% static 'images/favorite.png' %}" alt="" />
+                        {% endif %}
+                    </a>
+                    <a href="{% url 'edit' post.pk %}" class="edit"
+                        ><img src="{% static 'images/edit.png' %}" alt=""
+                    /></a>
+                    <a href="{% url 'delete' post.pk %}" class="delete"
+                        ><img src="{% static 'images/delete.png' %}" alt=""
+                    /></a>
+                </div>
+                <h3 class="title">{{ post.title }}</h3>
+                <p class="content">{{ post.content }}</p>
+            </div>
         </div>
+        {% endfor %}
     </div>
     <h2>All Post Its</h2>
     <div class="posts-section">
         <div class="create-post"><a href="{% url 'create' %}">+</a></div>
         {% for post in posts %}
-        <div class="post-it">
-            <div class="post-actions">
-                <button class="edit">Favourite</button>
-                <button class="edit">Edit</button>
-                <button class="delete">Delete</button>
+        <div class="post-container">
+            <div class="post-it">
+                <div class="post-actions">
+                    {% if post.isPublic %}
+                    <a href="{% url 'share' post.pk %}" class="edit">
+                        <img src="{% static 'images/share.png' %}" alt="" />
+                    </a>
+                    {% endif %} {% if post.isFavourite %}
+                    <a href="{% url 'favourite' post.pk %}" class="edit">
+                        <img src="{% static 'images/isfav.png' %}" alt="" />
+                    </a>
+                    {% else %}
+                    <a href="{% url 'favourite' post.pk %}" class="edit">
+                        <img src="{% static 'images/favorite.png' %}" alt="" />
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'edit' post.pk %}" class="edit"
+                        ><img src="{% static 'images/edit.png' %}" alt=""
+                    /></a>
+                    <a href="{% url 'delete' post.pk %}" class="delete"
+                        ><img src="{% static 'images/delete.png' %}" alt=""
+                    /></a>
+                </div>
+                <h3 class="title">{{ post.title }} // ID: {{ post.pk }}</h3>
+                <p class="content">{{ post.content }}</p>
             </div>
-            <h2 class="title">{{ post.title }}</h2>
-            <p class="content">{{ post.content }}</p>
         </div>
         {% endfor %}
     </div>
@@ -47,7 +89,7 @@
         <p class="tagline">
             Forget another note taking app, just make a Post It.
         </p>
-        <a href="#">Join Today</a>
+        <a href="{% provider_login_url 'google' %}?next=/">Join Today</a>
         <div class="desc-container">
             <p class="desc" style="display: none">
                 Add. Write. Save. Share. Long ago, these four actions lived

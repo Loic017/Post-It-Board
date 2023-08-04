@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="share-container">
+    <!-- prettier ignore -->
+    {% if post.isPublic %}
+    <div class="post-container-share">
+        <div class="post-it-share">
+            <h3 class="title">{{ post.title }} // ID: {{ post.pk }}</h3>
+            <p class="content">{{ post.content }}</p>
+        </div>
+        <p class="post-below-text">
+            This is a public post hosted here on Post It! Sign in to start
+            remembering, its free!
+        </p>
+        {% if user.is_authenticated %}
+        <a href="{% url 'create' %}" class="create-post">+</a>
+        {% else %} {% load socialaccount %}
+        <a href="{% provider_login_url 'google' %}?next=/">Join Today</a>
+        {% endif %}
+    </div>
+    {% else %}
+    <h1>Woooahh, you cant access this page!</h1>
+    <p>Login to start jotting down onto Post Its</p>
+    <a href="{% provider_login_url 'google' %}?next=/">Join Today</a>
+    {% endif %}
+</div>
+{% endblock %}

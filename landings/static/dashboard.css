@@ -41,6 +41,7 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease-in-out;
+    scroll-snap-align: start;
 }
 
 .create-post:hover {
@@ -56,9 +57,11 @@
 }
 
 .post-it {
+    scroll-snap-align: start;
     min-width: 300px;
     height: 200px;
-    padding: 10px;
+    max-width: 300px;
+    padding: 10px 30px;
     background-color: #e5e5f7;
     opacity: 0.8;
     background-color: radial-gradient(
@@ -83,16 +86,34 @@
     background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
     /* background: transparent; */
     backdrop-filter: blur(20px);
-    border-radius: 20px 0 20px 20px;
+    border-radius: 20px 0 0 20px;
     display: flex;
+    justify-content: space-between;
+    overflow-y: scroll;
     flex-direction: column;
     color: #000;
     border: 2px solid #fff;
 }
 
-.post-it button {
+.post-actions {
     align-self: flex-end;
-    justify-self: flex-end;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-actions a img {
+    text-decoration: none;
+    width: 80%;
+}
+
+.post-actions a {
+    text-decoration: none;
+}
+
+.post-actions a:hover {
+    transform: scale(0.99);
 }
 
 .posts-section {
@@ -101,21 +122,31 @@
     align-items: center;
     justify-content: start;
     gap: 20px;
+    max-width: 1600px;
     overflow-x: scroll;
     padding: 10px 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
+.post-it:hover {
+    background-color: #fff;
+}
+
+.post-it p {
+    padding-bottom: 50px;
+}
 /* Set the width and height of the scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
-    height: 5px;
+    height: 7px;
     opacity: 0.3;
 }
 
 /* Set the background color of the track */
 ::-webkit-scrollbar-track {
     border-radius: 10px;
-    background-color: #7d5ef763;
+    background-color: transparent;
     opacity: 0.3;
 }
 
@@ -123,6 +154,7 @@
 ::-webkit-scrollbar-thumb {
     background-color: #7c5ef7;
     border-radius: 5px;
+    cursor: grab;
 }
 
 .form-container {
@@ -144,7 +176,7 @@
     flex-direction: column;
     justify-content: end;
     width: 600px;
-    height: 500px;
+    height: 600px;
     background-color: #d5c3ed;
 }
 
@@ -152,12 +184,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 700px;
+    width: 800px;
     height: 500px;
     background-color: #000000;
     color: #d8d9da;
     width: 50%;
-    margin: 0 auto;
+    margin: 0 40px;
 }
 
 .right form {
@@ -173,16 +205,24 @@
     width: 70%;
 }
 
+.right form textarea {
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 0;
+    width: 70%;
+}
+
 .right form input[type="submit"] {
     width: 50%;
     padding: 15px 20px;
     border: 2px solid transparent;
     cursor: pointer;
-    margin-top: 20px;
+
     transition: all 0.3s ease-in-out;
     font-size: 18px;
     font-weight: 600;
     font-family: IBM Plex Mono;
+    margin: 20px 0;
 }
 
 .right form input[type="submit"]:hover {
@@ -196,4 +236,89 @@
 .right form label {
     padding-left: 20px;
     margin-top: 20px;
+}
+
+.share-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    gap: 20px;
+}
+
+.share-container a {
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    border: 3px solid transparent;
+    color: #161a20;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 24px;
+    font-weight: 700;
+    width: 250px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+.share-container a:hover {
+    background-color: #161a20;
+    color: #fff;
+    border: 3px solid #fff;
+    transform: scale(1.02);
+}
+
+.post-it-share {
+    scroll-snap-align: start;
+    min-width: 500px;
+    height: 300px;
+    max-width: 500px;
+    padding: 10px 30px;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-color: radial-gradient(
+            circle,
+            transparent 20%,
+            #e5e5f7 20%,
+            #e5e5f7 80%,
+            transparent 80%,
+            transparent
+        ),
+        radial-gradient(
+                circle,
+                transparent 20%,
+                #e5e5f7 20%,
+                #e5e5f7 80%,
+                transparent 80%,
+                transparent
+            )
+            25px 25px,
+        linear-gradient(#444cf7 2px, transparent 2px) 0 -1px,
+        linear-gradient(90deg, #444cf7 2px, #e5e5f7 2px) -1px 0;
+    background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
+    /* background: transparent; */
+    backdrop-filter: blur(20px);
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    overflow-y: scroll;
+    flex-direction: column;
+    color: #000;
+    border: 2px solid #fff;
+    padding-top: 60px;
+}
+
+.post-below-text {
+    text-align: center;
+    color: #fff;
+}
+
+.post-container-share {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }

@@ -198,6 +198,11 @@ footer {
     color: #ffffff32;
     padding-top: 50px;
     padding-bottom: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100%;
 }
 
 footer a {
@@ -293,10 +298,10 @@ footer a:hover {
         width: 90%;
     }
 
-    footer {
+    /* footer {
         width: 80%;
         margin: 0 auto;
-    }
+    } */
 
     svg {
         position: fixed;

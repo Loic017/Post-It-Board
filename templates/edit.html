@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="form-container">
+    <div class="left"></div>
+    <div class="right">
+        <h1>Changed your mind?</h1>
+        <form action="" method="post">
+            {% csrf_token %} {{ form }}
+            <input type="submit" value="Save Edit" />
+        </form>
+    </div>
+</div>
+
+{% endblock %}
