@@ -14,6 +14,12 @@ def landing(request):
     if request.user.is_authenticated:
         posts = Post.objects.filter(author=request.user.id)
         favPosts = Post.objects.filter(author=request.user.id, isFavourite=True)
+        
+        if request.method == "GET" and 'q' in request.GET:
+            query = request.GET.get('q')
+            posts = posts.filter(title__icontains=query)
+            favPosts = favPosts.filter(title__icontains=query)
+        
         context = {
             "posts": posts,
             "favPosts": favPosts,

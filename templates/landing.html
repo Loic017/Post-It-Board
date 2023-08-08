@@ -5,8 +5,14 @@
 {% load socialaccount %}
 <div class="dashboard-main">
     <h1>{{ user.username }}'s Post It Board</h1>
-    <form action="">
-        <input id="search" type="text" placeholder="Search" />
+    <form method="GET" action="{% url 'landing' %}">
+        <input
+            id="search"
+            name="q"
+            type="text"
+            placeholder="Enter note title"
+        />
+        <button type="submit">Search</button>
     </form>
     <h2>Favourite Post Its</h2>
     <div id="favourites" class="posts-section">
